@@ -9,5 +9,11 @@
 
 最后打开cmd，输入：flutter version 看看是否成功
 
+成功后重启vscode
+
+3、在vscode终端中输入: flutter create myapp
+
+
+
 
 
