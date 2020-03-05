@@ -36,6 +36,8 @@ android studio 下载地址：https://developer.android.google.cn/studio?hl=zh_c
 
 android sdk 安装教程：https://blog.csdn.net/lilongwei000/article/details/88870272
 
+#### Android license status unknown
+
 ### 设置 Android emulator
 
 1、启用 VM acceleration
