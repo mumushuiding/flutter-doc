@@ -2,13 +2,45 @@
 
 ## 使用vscode创建第一个App
 
+### 下载需要的文件
+
+为了节约时间，先需要的东西先下载好
+
+1、下载Flutter SDK:
+
+https://flutter.dev/docs/get-started/install/windows
+
+2、(window10系统的)检查版本，并更新至Windows10 2018 April（Windows 1803）及以上版本
+
+3、下载 android studio：
+
+https://developer.android.google.cn/studio?hl=zh_cn
+
+4、需要java环境，jdk 不能大于1.8，会有兼容性问题
+
 ### vscode下载flutter和dart插件
+
+### 安装 android studio
+
+1、强烈建议安装android studio，因为由于墙的原因以及Hyper-V硬件加速等,安装AS会解决很多问题
+
+2、安装过程中最好勾选上 android SDK,没有的话自行下载
+
+android sdk 安装教程：https://blog.csdn.net/lilongwei000/article/details/88870272
+
+3、android sdk 环境变量配置
+
+环境变量名：ANDROID_HOME
+
+%ANDROID_HOME%\tools
+
+%ANDROID_HOME%\platforms
+
+%ANDROID_HOME%\platform-tools
 
 ### 安装Flutter SDK
 
-1、打开 https://flutter.dev/docs/get-started/install/windows，找到Get the Flutter SDK并下载
-
-2、设置bin文件夹路径的环境变量，
+设置bin文件夹路径的环境变量
 
 ### 安装硬件加速
 
@@ -16,7 +48,9 @@ window7需要安装HAXM
 
 window10建议使用Hyper-V进行加速,这样不会跟Docker发生冲突
 
-####　修改模拟器虚拟化技术为Hyper-V：
+
+#### 修改模拟器虚拟化技术为Hyper-V：
+
 
 windows 版本需要是 Windows10 2018 April（Windows 1803）及以上版本
 
@@ -35,23 +69,6 @@ $ winver 查看电脑版本（升级攻略网上搜）
 ### Run flutter doctor -v
 
 在终端输入：flutter docker -v 检查缺少的依赖并安装，成功后重启vscode
-
-若是使用vscode编译的话，也强烈建议安装android studio，因为由于墙的原因以及android studio内置的AVD支持Hyper-V硬件加速等问题很多，后面的教程都是基于此写的
-
-android studio 下载地址：https://developer.android.google.cn/studio?hl=zh_cn
-
-android sdk 安装教程：https://blog.csdn.net/lilongwei000/article/details/88870272
-
-
-环境变量名：ANDROID_HOME
-
-android sdk: 环境变量设置
-
-%ANDROID_HOME%\tools
-
-%ANDROID_HOME%\platforms
-
-%ANDROID_HOME%\platform-tools
 
 
 #### Android license status unknown
