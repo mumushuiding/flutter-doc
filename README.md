@@ -12,10 +12,11 @@
 
 ### 安装硬件加速
 
-需要安装HAXM
+window7需要安装HAXM
 
+window10建议使用Hyper-V进行加速,这样不会跟Docker发生冲突
 
-修改模拟器虚拟化技术为Hyper-V：
+####　修改模拟器虚拟化技术为Hyper-V：
 
 windows 版本需要是 Windows10 2018 April（Windows 1803）及以上版本
 
@@ -23,25 +24,27 @@ Android Studio 3.2 beta 及以上版本
 
 Android Emulator v27.3.8 及以上版本
 
-$ winver 查看电脑版本
+$ winver 查看电脑版本（升级攻略网上搜）
 
-1、首先打开 windows功能，若存在Windows Hypervisor Platform，则将其勾选上，否则转下步
+1、首先打开 windows功能(点击windows ,搜索一下)，勾选 Hyper-V相关的功能，勾选Windows Hypervisor Platform 或者 ，则将其勾选上，否则转下步
+
+<img src="./imgs/HyperV硬件加速.png">
 
 2、重启电脑
 
 ### Run flutter doctor -v
 
-在终端输入：flutter docker 检查缺少的依赖并安装，成功后重启vscode
+在终端输入：flutter docker -v 检查缺少的依赖并安装，成功后重启vscode
 
-若是使用vscode编译的话，也强烈建议安装android studio，因为由于墙的原因以及android studio内置的AVD支持Hyper-V硬件加速。
+若是使用vscode编译的话，也强烈建议安装android studio，因为由于墙的原因以及android studio内置的AVD支持Hyper-V硬件加速等问题很多，后面的教程都是基于此写的
 
 android studio 下载地址：https://developer.android.google.cn/studio?hl=zh_cn
 
 android sdk 安装教程：https://blog.csdn.net/lilongwei000/article/details/88870272
 
-<<<<<<< HEAD
+
 环境变量名：ANDROID_HOME
-=======
+
 android sdk: 环境变量设置
 
 %ANDROID_HOME%\tools
@@ -49,7 +52,7 @@ android sdk: 环境变量设置
 %ANDROID_HOME%\platforms
 
 %ANDROID_HOME%\platform-tools
->>>>>>> 147d6531c64e3e9702f037f062945b36a48539f4
+
 
 #### Android license status unknown
 
@@ -59,21 +62,8 @@ $ flutter doctor --android-licenses
 
 一般是JDK版本过高，无法兼容，降级到1.8可行
 
-#### SDK 升级失败
+实在不行，先放着，暂时不影响开发
 
-在SDK Manager下Tools->Options打开了SDK Manager的Settings，选中“Force https://… sources to be fetched using http://…”，强制使用http协议。
-
-Windows在C:\WINDOWS\system32\drivers\etc打开/etc/hosts文件，添加
-
-#google_android更新
-
-203.208.46.146 dl.google.com
-
-203.208.46.146 dl-ssl.google.com
-
-#### sdkmanager 代理地址
-
-mirrors.neusoft.edu.cn:80
 
 ### 设置 Android emulator
 
@@ -91,5 +81,29 @@ mirrors.neusoft.edu.cn:80
 
 6、flutter run
 
+### 解决pub get 下载超慢的问题
 
+打开“环境变量”，新添系统变量：
+
+PUB_HOSTED_URL=https://pub.flutter-io.cn
+
+FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+### VSCODE 配置问题
+
+1、打开Command Palette -> Settings:
+
+<img src="./imgs/vscode配置.png">
+
+2、粘贴以下代码：
+
+```
+"dart.debugExternalLibraries": true,
+"dart.debugSdkLibraries": true,
+"dart.enableCompletionCommitCharacters": true,
+"dart.flutterHotRestartOnSave": true,
+"dart.lineLength": 120,
+"dart.previewFlutterUiGuides": true,
+"dart.triggerSignatureHelpAutomatically": true
+```
 

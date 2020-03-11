@@ -21,7 +21,17 @@ Stateful组件发生变化时，flutter会检查元素的Type和Key，如果没�
 
 ### 借鉴C++语言
 
-类函数构造： 借鉴了C++语言的默认值使用以及使用冒号快速赋值法
+#### construct 
+
+借鉴了C++语言的默认值使用以及使用冒号快速赋值法
+
+#### typedef
+
+类型定义：
+
+```
+typedef Callback = void Function();
+```
 
 ### var 关键词的使用
 
@@ -30,6 +40,12 @@ Stateful组件发生变化时，flutter会检查元素的Type和Key，如果没�
 ### 同java的不同之处
 
 1、new 关键词： 可用可不用，效果上没有区别
+
+## 库
+
+### shared_preferences
+
+SharedPreferences轻量级存储类，以键值对的形式保存设置，属性和数据。
 
 ## 类
 
@@ -48,6 +64,16 @@ Container(
       ),
     );
 ```
+
+
+### double
+
+#### infinity
+```
+// 强制在宽度上撑满
+width: double.infinity
+```
+
 ### SliverGrid
 
 一行显示两个或者多个
@@ -55,3 +81,10 @@ Container(
 ### Stack 组件堆叠
 
 可以将组件一层层堆叠起来
+
+
+### StatefulWidget 
+
+#### dispose 方法
+
+Flutter的对象销毁机制同C++类似，所以很容易出现内存泄露问题，需要合理使用dispose销毁自己创建的对象
